@@ -4,4 +4,16 @@
   <%= flash['message'] %> </br>
 <% end %>
 
-<h1> <%= @item.question %>
+<h1> <%= @item.question %> </h1>
+
+
+<%=form_tag('/welome/test', method: 'post') do %>
+
+  <%= label_tag("code") %>
+  <%= text_field_tag("question") %>
+  <%= submit_tag("Enter") %>
+  <%= hidden_field_tag :question, @item.question %>
+
+<% end %>
+
+
