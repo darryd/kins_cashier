@@ -11,16 +11,7 @@ class WelcomeController < ApplicationController
 
     actual_answer = Item.find_by(question: question).answer
 
-    result = :success
-
-    begin
-      answer = answer.to_i
-      actual_answer = actual_answer.to_i
-    rescue
-      result = :failure
-    end
-
-    if actual_answer == answer and result == :success
+    if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct"
     else
       flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
