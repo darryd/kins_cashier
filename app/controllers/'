@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
     answer = params[:answer].gsub(/\s+/, "")
 
     actual_answer = Item.find_by(question: question).answer
-    
+
     if actual_answer == answer
       flash['message'] = "Correct"
     else
