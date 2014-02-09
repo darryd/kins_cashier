@@ -6,18 +6,16 @@ class WelcomeController < ApplicationController
   def test
 
     
-    #question = params[:question]
-    #answer = params[:answer].gsub(/\s+/, "")
+    question = params[:question]
+    answer = params[:answer] #.gsub(/\s+/, "")
 
-    #actual_answer = Item.find_by(question: question).answer
+    actual_answer = Item.find_by(question: question).answer
 
-    #actual_answer = "4"
-    
-    #if actual_answer == answer
-    #  flash['message'] = "Correct"
-    #else
-    #  flash['message'] = "Incorrect. The correct code is " + actual_answer + "."
-    #end
+    if actual_answer == answer
+      flash['message'] = "Correct"
+    else
+      flash['message'] = "Incorrect. The correct code is " + actual_answer + "."
+    end
 
     redirect_to '/'
   end
