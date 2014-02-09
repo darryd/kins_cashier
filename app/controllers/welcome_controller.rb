@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
 
     begin
       answer = answer.to_i
-      actual_answer.to_i
+      actual_answer = actual_answer.to_i
     rescue
       result = :failure
     end
