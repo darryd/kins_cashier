@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
     if actual_answer == answer
       flash['message'] = "Correct"
     else
-      flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer
+      flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
     end
 
     redirect_to '/'
