@@ -7,9 +7,11 @@ class WelcomeController < ApplicationController
 
     
     question = params[:question]
-    answer = params[:answer].to_i
+    answer = params[:answer]
+    answer = answer.to_i
 
-    actual_answer = Item.find_by(question: question).answer.to_i
+    actual_answer = Item.find_by(question: question).answer
+    actual_answer = actual_answer.to_i
 
     if actual_answer == answer
       flash['message'] = "Correct"
