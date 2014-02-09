@@ -1,10 +1,11 @@
 
+<h1> Practice you codes for being a cashier at <%= link_to "Kin's Farm Market", "http://www.kinsfarmmarket.com" %> </h1>
 
 <% if flash['message'] %>
   <%= flash['message'] %> </br>
 <% end %>
 
-<h1> <%= @item.question %> </h1>
+<h2> <%= @item.question %> </h2>
 
 
 <%=form_tag('/welcome/test', method: 'post') do %>
