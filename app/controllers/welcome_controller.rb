@@ -1,19 +1,18 @@
 class WelcomeController < ApplicationController
   def index
 
+    if session[:id] != nil
 
-    if session[:question] != nil
-
-      item_id = params[:id]
+      item_id = params[session[:id]]
       
       begin
 	@item = Item.find(item_id.to_i)
       rescue
-	session[:question] = nil
+	session[:id] = nil
       end
     end
 
-    if session[:question] == nil
+    if session[:id] == nil
       @item = Item.all.sample(1).first
     end
 
@@ -24,15 +23,19 @@ class WelcomeController < ApplicationController
     question = params[:question]
     answer = params[:answer]
 
-    actual_answer = Item.find_by(question: question).answer
+    item = Item.find_by(question: question)
+    actual_answer = item.answer
 
     if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct"
-      redirect_to '/'
+      session[:id] = nil
     else
       flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
-      redirect_to '/?id=' + Item.id
+      flash['message'] = flash['message'] + "</br>Try again."
+      session[:id] = item.id
     end
+
+    redirect_to '/'
 
   end
 end
