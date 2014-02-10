@@ -29,7 +29,7 @@ class WelcomeController < ApplicationController
     if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct"
     else
-      flash['message'] = "In correct. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
+      flash['message'] = "Try again! The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
       flash[:id] = item.id
     end
 
