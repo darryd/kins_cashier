@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
     if session[:question] != nil
 
-      item_id = parmas[:id]
+      item_id = params[:id]
       
       begin
 	@item = Item.find(item_id.to_i)
