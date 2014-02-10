@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   def index
 
 
-    if session[:question] = nil
+    if session[:question] == nil
 
       item_id = parmas[:id]
       
