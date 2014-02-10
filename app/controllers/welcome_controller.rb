@@ -1,11 +1,14 @@
 class WelcomeController < ApplicationController
   def index
-    @item = Item.all.sample(1).first
+
+    if session[:question] != nil
+      @item = Item.all.sample(1).first
+    end
+
   end
 
   def test
 
-    
     question = params[:question]
     answer = params[:answer]
 
