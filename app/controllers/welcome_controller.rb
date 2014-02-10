@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
       item_id = params[session[:id]]
       
       begin
-	@item = Item.find(item_id.to_i)
+	@item = Item.find(item_id)
       rescue
 	session[:id] = nil
       end
@@ -30,8 +30,7 @@ class WelcomeController < ApplicationController
       flash['message'] = "Correct"
       session[:id] = nil
     else
-      flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
-      flash['message'] = flash['message'] + "</br>Try again."
+      flash['message'] = "Try again. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
       session[:id] = item.id
     end
 
