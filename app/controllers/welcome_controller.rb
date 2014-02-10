@@ -38,4 +38,11 @@ class WelcomeController < ApplicationController
     redirect_to '/'
 
   end
+
+  def view
+    
+   @items = Item.all
+
+  end
+
 end
