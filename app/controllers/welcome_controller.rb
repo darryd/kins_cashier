@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
       redirect_to '/'
     else
       flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
-      redirect_to '/&id=' + Item.id
+      redirect_to '/?id=' + Item.id
     end
 
   end
