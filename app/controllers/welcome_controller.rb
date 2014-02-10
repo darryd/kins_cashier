@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   def index
 
 
-    if session[:question] == nil
+    if session[:question] != nil
 
       item_id = parmas[:id]
       
@@ -11,6 +11,8 @@ class WelcomeController < ApplicationController
       rescue
 	session[:question] = nil
       end
+    end
+
 
     if session[:question] == nil
       @item = Item.all.sample(1).first
