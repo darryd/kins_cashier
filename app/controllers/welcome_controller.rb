@@ -28,9 +28,11 @@ class WelcomeController < ApplicationController
 
     if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct!"
+      flash['correct'] = true
     else
       flash['message'] = "Try again! The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
       flash[:id] = item.id
+      flash['correct'] = false
     end
 
     redirect_to '/'
