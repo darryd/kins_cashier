@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
 
-    if session[:question] != nil
+    if session[:question] == nil
       @item = Item.all.sample(1).first
     end
 
