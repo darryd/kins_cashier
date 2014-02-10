@@ -1,6 +1,17 @@
 class WelcomeController < ApplicationController
   def index
 
+
+    if session[:question] = nil
+
+      item_id = parmas[:id]
+      
+      begin
+	@item = Item.find(item_id.to_i)
+      rescue
+	session[:question] = nil
+      end
+
     if session[:question] == nil
       @item = Item.all.sample(1).first
     end
