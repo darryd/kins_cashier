@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
     if flash[:id] != nil
 
-      item_id = session[:id]
+      item_id = flash[:id]
       
       begin
 	@item = Item.find(item_id)
