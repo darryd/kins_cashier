@@ -1,15 +1,9 @@
 
-<% 
-  if flash['correct']
-    color = "red"
-  else
-    color = "black"
-  end 
-%>
-
-
-
-<% color = black %>
+<% if flash['correct'] %> 
+  <% color = "red" %>
+<% else %>
+  <% color = "black" %>
+<% end %> 
 
 <h2> Practice your codes for being a cashier at <%= link_to "Kin's Farm Market", "http://www.kinsfarmmarket.com" %> </h2>
 
