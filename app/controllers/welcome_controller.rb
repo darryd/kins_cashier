@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
     if flash[:id] != nil
 
-      item_id = params[session[:id]]
+      item_id = session[:id]
       
       begin
 	@item = Item.find(item_id)
@@ -28,7 +28,6 @@ class WelcomeController < ApplicationController
 
     if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct"
-      flash[:id] = nil
     else
       flash['message'] = "In correct. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
       flash[:id] = item.id
