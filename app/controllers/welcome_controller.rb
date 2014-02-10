@@ -13,7 +13,6 @@ class WelcomeController < ApplicationController
       end
     end
 
-
     if session[:question] == nil
       @item = Item.all.sample(1).first
     end
@@ -29,10 +28,11 @@ class WelcomeController < ApplicationController
 
     if actual_answer.to_i == answer.to_i
       flash['message'] = "Correct"
+      redirect_to '/'
     else
       flash['message'] = "Incorrect. The correct code for " + question + " is " + actual_answer + "." + "You entered: " + answer.to_s
+      redirect_to '/&id=' + Item.id
     end
 
-    redirect_to '/'
   end
 end
