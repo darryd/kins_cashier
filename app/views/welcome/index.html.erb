@@ -21,7 +21,7 @@
 <%=form_tag('/welcome/test', method: 'post') do %>
 
   <%= label_tag("code") %>
-  <%= text_field_tag("answer") %>
+  <%= number_field_tag("answer") %>
   <%= submit_tag("Enter") %>
   <%= hidden_field_tag :question, @item.question %>
 
