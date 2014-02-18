@@ -7,7 +7,22 @@
   <% color = "blue" %>
 <% end %> 
 
-<h2> Practice your codes for <%= link_to "Kin's Farm Market", "http://www.kinsfarmmarket.com" %>. </h2>
+<h3> To employees and future employees: </h3>
+<p> 
+I'm an employee and I made this little practice session for your benefit and amusement. </br>  
+Here you can test your memory of Kin's numerical product codes for use especially at the cash register.
+</p>
+<h2 style="color:orange" > Product: <%= @item.question %> </h2>
+
+
+<%=form_tag('/welcome/test', method: 'post') do %>
+
+  <%= label_tag("code for that product") %>
+  <%= number_field_tag("answer") %>
+  <%= submit_tag("Submit") %>
+  <%= hidden_field_tag :question, @item.question %>
+
+<% end %>
 
 <p style="color:<%=color%>">
 <% if flash['message'] %>
@@ -15,18 +30,9 @@
 <% end %>
 </p>
 
-<h2> <%= @item.question %> </h2>
-
-
-<%=form_tag('/welcome/test', method: 'post') do %>
-
-  <%= label_tag("code") %>
-  <%= number_field_tag("answer") %>
-  <%= submit_tag("Enter") %>
-  <%= hidden_field_tag :question, @item.question %>
-
-<% end %>
 
 <p>
 <%= link_to "View all codes", "/welcome/view" %>
 </p>
+
+<p> For more information see  <%= link_to "Kin's Farm Market", "http://www.kinsfarmmarket.com" %>. </p>
